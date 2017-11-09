@@ -1,6 +1,6 @@
 import ctypes
 
-# TODO - Clean up py 3 constraints 
+# TODO - Clean up py 3 constraints
 
     class DynamicArray(object):
 
