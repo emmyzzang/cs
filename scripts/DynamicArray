@@ -1,0 +1,45 @@
+import ctypes
+
+# TODO - Clean up py 3 constraints 
+
+    class DynamicArray(object):
+
+        def __init__(self):
+
+            self.n = 0
+            self.capacity = 1
+            self.A = self.make_array(self.capacity)
+
+            def __len__(self):
+                return self.n
+
+            def __getitem__(self,k):
+
+                if not 0 <= k < self.n:
+                    return IndexError('K is out of bounds!')
+
+                return self.A[k]
+
+            def append(self, ele):
+
+                # Check the capacity
+                if  self.n == self.capacity:
+                    self._resize(2*self.capacity) # 2x if capacity is not enough
+
+                    self.A[self.n] = ele
+                    # Since that is equal to the elements, add 1 to that count
+                    self.n +=1
+
+            def _resize(self,new_cap):
+
+                B = self.make_array(new_cap) # make a new bigger array and call it B
+
+                    for k in range(self.n):
+                    B[k]= self.A[k]
+
+                    self.A = B
+                    self.capacity = new_cap
+
+            def make_array(self, new_cap):
+
+            return (new_cap * ctypes.py_object)()
